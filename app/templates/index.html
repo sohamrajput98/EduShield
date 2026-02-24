@@ -6,11 +6,17 @@
 <body>
     <h1>EduShield – Offline Phishing Detection</h1>
 
-    <form action="/analyze" method="post">
-        <textarea name="email_content" rows="10" cols="60"
-            placeholder="Paste suspicious email here"></textarea>
+    <h2>Analyze Suspicious Email</h2>
+
+    <form action="/analyze" method="post" enctype="multipart/form-data">
+        <textarea name="email_content" rows="10" cols="70" placeholder="Paste suspicious email content here"></textarea>
         <br><br>
-        <button type="submit">Analyze</button>
+
+        <label>Or upload .eml file (optional)</label>
+        <input type="file" name="email_file" accept=".eml">
+        <br><br>
+
+        <button type="submit">Analyze Email</button>
     </form>
 </body>
 </html>
