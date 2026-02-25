@@ -48,7 +48,7 @@ async def analyze_email(
 
     rule_score = 0.0
 
-    risk_result = calculate_risk_score(ml_prob, rule_score)
+    risk_result = calculate_risk_score(ml_prob, text_data)
     category = None
 
     if risk_result["label"] == "Safe":
@@ -72,10 +72,11 @@ async def analyze_email(
 
     
     text_data = None
-
     return {
-    **risk_result,
-    **explanation,
+    "risk_score": risk_result["risk_score"],
+    "label": risk_result["label"],
+    "reasons": risk_result["reasons"],   # force correct reasons
     "confidence": round(float(ml_prob), 2),
-    "category": category
-  }
+    "category": category,
+    "explanations": explanation          # separate key
+}
