@@ -2,6 +2,9 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi import FastAPI, Request
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
 
 from app.api.routes import router
 from app.database.db import init_db
@@ -35,3 +38,8 @@ app = create_app()
 
 
 templates = Jinja2Templates(directory="app/static/templates")
+
+@app.get("/")
+async def serve_home(request: Request):
+  
+    return templates.TemplateResponse("index.html", {"request": request})
