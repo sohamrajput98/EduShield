@@ -4,7 +4,7 @@ from fastapi.templating import Jinja2Templates
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.routes import router
-
+from app.database.db import init_db
 
 def create_app() -> FastAPI:
     
@@ -13,7 +13,7 @@ def create_app() -> FastAPI:
         description="Privacy-First Offline AI Phishing Detection for Academic Institutions",
         version="0.1.0"
     )
-
+    init_db()
   
     app.add_middleware(
         CORSMiddleware,
