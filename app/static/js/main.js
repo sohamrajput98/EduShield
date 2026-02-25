@@ -38,7 +38,15 @@ async function analyzeEmail() {
         document.getElementById("attackType").innerText =
             data.label === "Phishing" ? "Credential Theft Detected" :
             data.label === "Suspicious" ? "Anomalous Pattern" : "No Threats Found";
+        let categoryBox = document.getElementById("emailCategory");
 
+        if (data.label === "Safe" && data.category) {
+            categoryBox.innerHTML = `📩 ${data.category}`;
+            categoryBox.style.display = "block";
+        } else {
+            categoryBox.style.display = "none";
+        }
+    
         let reasonsList = document.getElementById("reasons");
         reasonsList.innerHTML = "";
         if (data.reasons) {
