@@ -21,3 +21,6 @@ Thumbs.db
 
 # Build artifacts
 *.egg-info/
+
+#db.sqlite3
+*.db
