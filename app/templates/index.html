@@ -1,41 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>EduShield AI | AMD Hackathon</title>
+    <meta charset="UTF-8">
+    <title>EduShield AI | AMD Performance Hub</title>
     <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 <body>
 
-<div class="card">
-    <h1>🛡️ EduShield <span class="accent">AI</span></h1>
-    <p style="font-size: 0.85rem; opacity: 0.6; margin-top: -10px;">Hardware-Accelerated Threat Detection</p>
+<div class="container">
+    <div class="card">
+        <header>
+            <div class="header-main">
+                <h1>EDUSHIELD <span class="accent">AI</span></h1>
+                <div class="amd-badge">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/AMD_Logo.svg" class="amd-logo" alt="AMD">
+                    <span>RYZEN™ OPTIMIZED</span>
+                </div>
+            </div>
+            <p class="subtitle">NEURAL THREAT MITIGATION // HARDWARE-ACCELERATED</p>
+        </header>
 
-    <textarea id="emailText" placeholder="Paste email content for silicon-level analysis..."></textarea>
+        <textarea id="emailText" placeholder="[WAITING FOR DATA INPUT STREAM...]"></textarea>
 
-    <div style="margin-top:15px; font-size: 0.8rem;">
-        <input type="file" id="emailFile" accept=".eml" style="display:none">
-        <button onclick="document.getElementById('emailFile').click()" style="background: #21262d; width: auto; padding: 6px 12px; margin: 0;">📁 Attach .eml</button>
+        <div id="fileDisplay" class="file-terminal hidden">
+            <div class="file-info">
+                <span class="pulse">●</span> BLOB: <span id="fileName"></span> | <span id="fileSize"></span>
+            </div>
+            <div class="remove-btn" onclick="clearFile()">[ REMOVE_FILE ]</div>
+        </div>
+
+        <div class="btn-group">
+            <input type="file" id="emailFile" accept=".eml" style="display:none" onchange="handleFileLoad(this)">
+            <button class="secondary-btn" onclick="document.getElementById('emailFile').click()">📁 LOAD .EML</button>
+            <button class="primary-btn" onclick="analyzeEmail()">EXECUTE DEEP SCAN</button>
+        </div>
+
+        <div id="resultArea" class="hidden">
+            <h3 class="section-title">DETECTION_LOGS</h3>
+            <ul id="reasons" class="reasons-list"></ul>
+        </div>
     </div>
 
-    <button onclick="analyzeEmail()">EXECUTE SCAN</button>
-
-    <div id="loading" class="hidden">Scanning Neural Patterns...</div>
-
-    <div id="result" class="hidden">
-        <div class="risk-meter-wrap">
+    <div class="side-panel">
+        <div class="panel-box risk-meter-wrap">
+            <span class="label-title">Risk Analysis Score</span>
             <svg viewBox="0 0 36 36" class="circular-chart">
                 <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                <path id="circleProgress" class="circle" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                <text x="18" y="21" class="percentage" id="riskScore" style="fill:white; font-size: 8px; text-anchor: middle;">0%</text>
+                <path id="circleProgress" class="circle" stroke="#333" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <text x="18" y="21" id="riskScore" class="percentage">0%</text>
             </svg>
-            <div>
-                <div id="labelBadge">RESULT</div>
-                <div id="attackType" style="font-size: 0.9rem; margin-top: 5px; font-weight: bold;"></div>
+            <div id="labelBadge">SYSTEM_IDLE</div>
+        </div>
+
+        <div class="panel-box">
+            <span class="label-title">Core Telemetry</span>
+            <div id="telemetry" class="telemetry-feed">
+                > CORE_IDLE<br>
+                > RADEON_GPU_LISTENING
+            </div>
+            <div class="histogram" id="cpuHistogram">
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div>
             </div>
         </div>
-    <div id="emailCategory" style="margin-top:10px; font-weight:600; display:none;"></div>
-        <h3 style="font-size: 0.9rem; margin-top: 20px; color: var(--amd-teal);">THREAT INDICATORS:</h3>
-        <ul id="reasons" class="reasons-list"></ul>
+
+        <div class="panel-box">
+            <span class="label-title">Classification</span>
+            <div id="attackType" class="class-text">---</div>
+            <div id="emailCategory" class="cat-text"></div>
+        </div>
     </div>
 </div>
 
