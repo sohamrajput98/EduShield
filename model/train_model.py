@@ -10,14 +10,14 @@ from sklearn.linear_model import LogisticRegression
 # Load dataset
 df = pd.read_csv("data/phishing_dataset.csv")
 
-# Combine text fields
+
 df["text"] = (
     df["subject"].fillna("") +
     " " +
     df["body"].fillna("")
 )
 
-# Clean text
+
 def clean_text(text):
     text = re.sub(r'http\S+', '', str(text))
     text = re.sub(r'\S+@\S+', '', str(text))
