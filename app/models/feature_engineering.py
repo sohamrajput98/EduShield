@@ -3,7 +3,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from app.services.email_parser import clean_text
 
 
-# Global vectorizer (loaded once)
+
 vectorizer = TfidfVectorizer(max_features=3000)
 
 
