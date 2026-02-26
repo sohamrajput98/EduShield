@@ -1,77 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>EduShield AI | AMD Performance Hub</title>
-    <link rel="stylesheet" href="/static/css/styles.css">
+<meta charset="UTF-8">
+<title>EduShield AI | AMD Performance Hub</title>
+
+<link rel="stylesheet" href="/static/css/styles.css"> <link rel="stylesheet" href="/static/css/styles.css?v=1.1">
 </head>
+
 <body>
 
 <div class="container">
-    <div class="card">
-        <header>
-            <div class="header-main">
-                <h1>EDUSHIELD <span class="accent">AI</span></h1>
-                <div class="amd-badge">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/AMD_Logo.svg" class="amd-logo" alt="AMD">
-                    <span>RYZEN™ OPTIMIZED</span>
-                </div>
+
+<!-- LEFT MAIN INPUT PANEL -->
+<div class="card">
+
+<header>
+    <div class="header-main" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h1>EDUSHIELD <span style="color:var(--amd-red)">AI</span></h1>
+
+        <div style="text-align: right;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/AMD_Logo.svg" 
+                 style="width: 120px; height: auto; display: block; margin-left: auto; filter: invert(1) brightness(0.9);">
+            <div style="font-size: 11px; font-weight: bold; letter-spacing: 2px; color: #aaa; margin-top: 5px;">
+                RYZEN™ OPTIMIZED
             </div>
-            <p class="subtitle">NEURAL THREAT MITIGATION // HARDWARE-ACCELERATED</p>
-        </header>
-
-        <textarea id="emailText" placeholder="[WAITING FOR DATA INPUT STREAM...]"></textarea>
-
-        <div id="fileDisplay" class="file-terminal hidden">
-            <div class="file-info">
-                <span class="pulse">●</span> BLOB: <span id="fileName"></span> | <span id="fileSize"></span>
-            </div>
-            <div class="remove-btn" onclick="clearFile()">[ REMOVE_FILE ]</div>
-        </div>
-
-        <div class="btn-group">
-            <input type="file" id="emailFile" accept=".eml" style="display:none" onchange="handleFileLoad(this)">
-            <button class="secondary-btn" onclick="document.getElementById('emailFile').click()">📁 LOAD .EML</button>
-            <button class="primary-btn" onclick="analyzeEmail()">EXECUTE DEEP SCAN</button>
-        </div>
-
-        <div id="resultArea" class="hidden">
-            <h3 class="section-title">DETECTION_LOGS</h3>
-            <ul id="reasons" class="reasons-list"></ul>
         </div>
     </div>
 
-    <div class="side-panel">
-        <div class="panel-box risk-meter-wrap">
-            <span class="label-title">Risk Analysis Score</span>
-            <svg viewBox="0 0 36 36" class="circular-chart">
-                <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                <path id="circleProgress" class="circle" stroke="#333" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                <text x="18" y="21" id="riskScore" class="percentage">0%</text>
-            </svg>
-            <div id="labelBadge">SYSTEM_IDLE</div>
-        </div>
+    <p style="color:#555; font-size: 10px; margin: 0; letter-spacing: 1px;">
+        NEURAL THREAT MITIGATION // HARDWARE ACCELERATED
+    </p>
+</header>
 
-        <div class="panel-box">
-            <span class="label-title">Core Telemetry</span>
-            <div id="telemetry" class="telemetry-feed">
-                > CORE_IDLE<br>
-                > RADEON_GPU_LISTENING
-            </div>
-            <div class="histogram" id="cpuHistogram">
-                <div class="bar"></div><div class="bar"></div><div class="bar"></div>
-                <div class="bar"></div><div class="bar"></div><div class="bar"></div>
-            </div>
-        </div>
+<textarea
+id="emailText"
+placeholder="[WAITING FOR DATA INPUT STREAM...]">
+</textarea>
 
-        <div class="panel-box">
-            <span class="label-title">Classification</span>
-            <div id="attackType" class="class-text">---</div>
-            <div id="emailCategory" class="cat-text"></div>
-        </div>
+<!-- File Terminal -->
+<div id="fileDisplay" class="hidden">
+<div>
+● FILE_STREAM_ACTIVE :
+<span id="fileName"></span>
+<span id="fileSize"></span>
+</div>
+
+<div onclick="clearFile()"
+style="color:#666; cursor:pointer">
+[ REMOVE_FILE ]
+</div>
+</div>
+
+<div class="btn-group">
+<input type="file"
+id="emailFile"
+accept=".eml"
+style="display:none"
+onchange="handleFileLoad(this)">
+
+<button class="secondary-btn"
+onclick="document.getElementById('emailFile').click()">
+📁 LOAD .EML
+</button>
+
+<button class="primary-btn"
+onclick="analyzeEmail()">
+EXECUTE DEEP SCAN
+</button>
+</div>
+
+<div class="btn-group">
+   
+</div>
+
+<div id="resultArea" class="hidden">
+    <h3>DETECTION_LOGS</h3>
+    <ul id="reasons"></ul>
+</div>
+
+<button class="secondary-btn" id="toggleAdvanced">
+    [ SHOW_ADVANCED_STATS ]
+</button>
+
+<div id="advancedStats" style="display:none; margin-top:15px;"></div>
+
+
+</div>
+
+
+<!-- RIGHT SIDEBAR -->
+<div class="side-panel">
+
+<div class="panel-box">
+
+<span class="label-title">Risk Analysis Score</span>
+
+<svg viewBox="0 0 36 36" class="circular-chart">
+
+<path class="circle-bg"
+d="M18 2.0845
+a 15.9155 15.9155 0 0 1 0 31.831
+a 15.9155 15.9155 0 0 1 0 -31.831"/>
+
+<path id="circleProgress" class="circle" stroke="#333" 
+    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+
+<text x="18" y="21"
+id="riskScore"
+class="percentage">
+0%
+</text>
+
+</svg>
+
+<div id="labelBadge"
+style="text-align:center;margin-top:10px">
+SYSTEM_IDLE
+</div>
+
+</div>
+
+
+<div class="panel-box">
+    <span class="label-title">Core Telemetry</span>
+
+    <div id="telemetry" class="telemetry-feed">
+        > CORE_IDLE<br>
+        > RADEON_GPU_LISTENING
+    </div>
+
+    <div class="load-bar-container" style="height:4px; background:#111; margin-top:10px; overflow:hidden; border-radius:2px;">
+        <div id="hwLoad" style="width:0%; height:100%; background:var(--amd-red); transition:0.2s; box-shadow: 0 0 10px var(--amd-red);"></div>
+    </div>
+    <div class="histogram">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
     </div>
 </div>
 
+
+<div class="panel-box">
+    <span class="label-title">Classification</span>
+    <div id="attackType" style="font-weight:800;font-size:1.2rem">---</div>
+    <div id="emailCategory" style="font-size:0.7rem; color:#666; margin-top:5px;"></div>
+</div>
+
+<div id="sideVisualContainer">
+    </div>
+</div>
+
+
+</div>
+<div id="previewModal" class="hidden" style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:10000; display:none; justify-content:center; align-items:center; backdrop-filter:blur(8px);">
+    
+    <div class="card" style="width:90%; max-width:1000px; max-height:85vh; border-top: 4px solid var(--amd-red); position:relative; overflow:hidden; display:flex; flex-direction:column; background: #0a0a0a; box-shadow: 0 0 100px rgba(237, 28, 36, 0.4);">
+        
+        <div style="display:flex; justify-content:space-between; align-items:center; padding: 20px; border-bottom: 1px solid #222; background: rgba(237,28,36,0.03);">
+            <div>
+                <h2 style="color:var(--amd-red); margin:0; font-size:1.1rem; letter-spacing:2px; font-weight:900;">[ FORENSIC_DEEP_SCAN ]</h2>
+                <div style="font-size:10px; color:#555; margin-top:5px;">RYZEN™ AI NPU // NEURAL_DECODE_ACTIVE</div>
+            </div>
+            <button onclick="closeModal()" style="background:var(--amd-red); color:white; border:none; padding:8px 15px; cursor:pointer; font-weight:bold; clip-path:polygon(10% 0, 100% 0, 90% 100%, 0 100%);">EXIT_STREAM</button>
+        </div>
+
+        <div id="modalBody" style="flex:1; overflow-y:auto; font-family:'Courier New', monospace; color:var(--accent-teal); font-size:0.85rem; line-height:1.7; background:#000; padding:30px; white-space:pre-wrap; word-break:break-all; border-left: 2px solid var(--amd-red);">
+            </div>
+
+        <div style="padding:20px; border-top: 1px solid #222; background: #050505; display: flex; flex-direction: column; align-items: center;">
+    <span style="font-size:0.7rem; color:#444; margin-bottom: 10px; width: 100%; text-align: left;">
+        INSTRUCTION_SET: AVX-512_VNNI
+    </span>
+    <button class="secondary-btn" onclick="closeModal()" style="width:100%; padding:15px; cursor: pointer; letter-spacing: 2px;">
+        RETURN_TO_DASHBOARD
+    </button>
+</div>
+    </div>
+</div>
 <script src="/static/js/main.js"></script>
+
 </body>
 </html>
