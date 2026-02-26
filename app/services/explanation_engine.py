@@ -40,6 +40,7 @@ def categorize_email(text: str) -> str:
         "deal", "sale", "buy now", "sponsored"
     ]
 
+
     transactional_keywords = [
         "invoice", "receipt", "order",
         "payment", "confirmation"
