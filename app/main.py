@@ -37,7 +37,7 @@ def create_app() -> FastAPI:
 app = create_app()
 
 
-templates = Jinja2Templates(directory="app/static/templates")
+templates = Jinja2Templates(directory="app/templates")
 
 @app.get("/")
 async def serve_home(request: Request):
