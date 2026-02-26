@@ -24,7 +24,6 @@ def init_db():
     conn.close()
 
 
-# Save prediction log
 def save_prediction(email_hash, risk_score, label):
 
     conn = sqlite3.connect(DB_PATH)
