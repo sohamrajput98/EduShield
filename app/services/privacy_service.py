@@ -1,6 +1,5 @@
 import hashlib
 
-
 def hash_email_content(text):
 
     return hashlib.sha256(
