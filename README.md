@@ -50,107 +50,168 @@
 
 # ⚡ CORE ARCHITECTURE
 
+Designed for high-throughput forensic analysis, the EduShield pipeline executes a linear, multi-stage transformation. By offloading the linguistic vectorization and classification stages to the **Ryzen™ AI NPU**, the system maintains ultra-low latency while ensuring deterministic threat detection.
 
+<br>
+
+![EduShield System Architecture](assets/arch.png)
+
+<br>
+
+### **The Pipeline Breakdown**
 
 | Stage | Process | Key Operations |
 | :--- | :--- | :--- |
 | **01** | **RAW EMAIL INPUT** | Ingestion of raw text or `.eml` forensic streams. |
-| **02** | **MIME STRUCTURAL PARSER** | Multipart traversal, Encoding normalization, Payload isolation. |
-| **03** | **TF-IDF VECTORIZATION** | High-dimensional linguistic feature mapping. |
-| **04** | **LOGISTIC REGRESSION** | Hardware-accelerated NPU classification. |
-| **05** | **URL TELEMETRY ENGINE** | Entropy scoring, TLD detection, and Redirect analysis. |
-| **06** | **HYBRID FUSION MATRIX** | Synthesis of neural probability and heuristic rules. |
-| **07** | **EXPLAINABLE OUTPUT** | Generation of final risk score and forensic logs. |
+| **02** | **MIME STRUCTURAL PARSER** | Multipart traversal, Encoding normalization, and Payload isolation. |
+| **03** | **TF-IDF VECTORIZATION** | High-dimensional linguistic feature mapping (NPU Optimized). |
+| **04** | **LOGISTIC REGRESSION** | Hardware-accelerated NPU classification using XDNA synergy. |
+| **05** | **URL TELEMETRY ENGINE** | Entropy scoring, TLD detection, and Redirect pattern analysis. |
+| **06** | **HYBRID FUSION MATRIX** | Synthesis of neural probability and deterministic heuristic rules. |
+| **07** | **EXPLAINABLE OUTPUT** | Generation of final risk score and transparent forensic logs (XAI). |
 
 ---
 
 </div>
 
+<div align="center">
+
 # 🧠 HYBRID FUSION MODEL
 
-```
-Final_Score = (ML_Probability * 0.7) + (Heuristic_Score * 0.3)
-```
+EduShield eliminates "Black-Box" uncertainty by synthesizing neural probability with deterministic forensic evidence. The result is a verifiable, multi-vector risk score optimized for the **AMD Ryzen™ NPU**.
 
-Risk Bands:
+<br>
 
-```
-0.00 – 0.39  → SAFE
-0.40 – 0.69  → SUSPICIOUS
-0.70 – 1.00  → HIGH RISK
-```
+### **THE DECISION LOGIC**
+$$\text{Final Risk Score} = (P_{\text{ML}} \times 0.7) + (S_{\text{Heuristic}} \times 0.3)$$
 
-Each response returns structured telemetry:
+<br>
 
-```
+`70% NEURAL INTELLIGENCE` • `30% DETERMINISTIC HEURISTICS`
+
+<br>
+
+---
+
+### **RISK ASSESSMENT BANDS**
+
+| Range | Threat Level | Response Protocol |
+| :--- | :--- | :--- |
+| **0.00 – 0.39** | 🟢 **SAFE** | Verified Clean Stream |
+| **0.40 – 0.69** | 🟡 **SUSPICIOUS** | Quarantine & Manual Audit |
+| **0.70 – 1.00** | 🔴 **HIGH RISK** | Immediate Forensic Intercept |
+
+---
+
+</div>
+
+<br>
+
+### 🔬 **FORENSIC TELEMETRY OUTPUT**
+The engine generates structured JSON telemetry for seamless **SIEM integration**, providing full transparency into the **Explainable AI (XAI)** trigger flags.
+
+
+
+```json
 {
-  "classification": "HIGH_RISK",
-  "ml_probability": 0.91,
-  "heuristic_score": 0.82,
-  "final_score": 0.88,
-  "trigger_flags": [
-      "high_entropy_domain",
-      "ip_based_url",
-      "urgent_language_pattern"
-  ],
-  "explanation": "Multiple phishing indicators detected across ML and heuristic layers.",
-  "record_hash": "SHA256(...)"
+    "summary": {
+        "risk_score": 0.88,            // 🔴 HIGH_RISK_DETECTED
+        "label": "MALICIOUS",         // 🔴 THREAT_CONFIRMED
+        "confidence": 0.94,           // 🔵 NEURAL_ACCURACY
+        "category": "PHISHING",       // 🔴 ATTACK_VECTOR
+        "reasons": [
+            "high_entropy_domain",
+            "ip_based_url",
+            "urgent_language_pattern"
+        ],
+        "explanations": "Multiple phishing indicators detected across ML and heuristic layers.",
+        "email_preview": "Dear User, Your account is locked. Click here: [http://192.168.1.1/login](http://192.168.1.1/login)..."
+    },
+    "advanced": {
+        "ml_probability": 0.94,        // 🟢 PROCESSED_BY_NPU
+        "url_features": {
+            "entropy": 4.52,
+            "has_ip": true,
+            "suspicious_tld": true
+        },
+        "engine_logs": [
+            "🔥 NEURAL DECODER ACTIVE 🔥",
+            "ML Probability: 0.942319",
+            "Risk Result: HIGH",
+            "Body Length: 142 chars"
+        ]
+    }
 }
-```
 
+```
 ---
 
 # 🔬 FORENSIC CAPABILITIES
 
-## MIME Deep Parsing
+EduShield AI operates across three specialized forensic layers, engineered for high-fidelity threat isolation and optimized for **Ryzen™ AI** local execution.
 
-```
-- Multipart .eml traversal
-- Base64 decoding
-- Quoted-printable normalization
-- UTF-8 sanitation
-- Attachment isolation
-```
 
-## URL Telemetry Layer
 
-```
-- Shannon entropy analysis
-- Suspicious TLD pattern matching
-- IPv4/IPv6 direct-link detection
-- Long subdomain chain detection
-- Encoded redirect payload detection
-```
+### 🟢 LINGUISTIC INTELLIGENCE
+**Neural Vector Space // Semantic Inference**
+- **Architecture** | High-dimensional `TF-IDF` mapping & `N-Gram` feature modeling.
+- **Inference** | Logistic Regression optimized for **Ryzen™ NPU** execution.
+- **Validation** | **98.4% Accuracy** on balanced forensic datasets.
 
-## Linguistic Intelligence
+<p align="center"><hr style="border:0; height:1px; background:#333; width:50%"></p>
 
-```
-- TF-IDF vectorization
-- N-gram feature modeling
-- Logistic regression classification
-- Dataset-balanced training pipeline
-- 98%+ validation accuracy
-```
+### 📂 MIME DEEP PARSING
+**Structural Forensic // Recursive Dissection**
+- **Protocol** | Automated traversal of complex `.eml` multipart structures.
+- **Decoding** | Normalization of `Base64` and `Quoted-Printable` obfuscation.
+- **Isolation** | Recursive payload sanitation with zero-persistence integrity.
+
+<p align="center"><hr style="border:0; height:1px; background:#333; width:50%"></p>
+
+### 🔗 URL TELEMETRY LAYER
+**Network Entropy // Path Analysis**
+- **Analytics** | **Shannon Entropy** calculation to detect DGA-generated domains.
+- **Detection** | Identification of `IPv4/IPv6` direct-links and TLD anomaly mapping.
+- **Heuristics** | Logic-based tracking of obfuscated redirect chains.
 
 ---
 
+
 # 🧱 SYSTEM STRUCTURE
 
+The EduShield architecture is a modular security stack designed for high-concurrency forensic inspection and hardware-accelerated neural inference.
+
 ```
+# 🧱 SYSTEM TOPOLOGY
+
 EduShield_AI/
-│
-├── app/
-│   ├── api/            # Inference endpoints
-│   ├── models/         # Serialized ML models
-│   ├── services/       # Hybrid scoring engine
-│   ├── parsers/        # MIME + URL analysis
-│   ├── static/         # Frontend assets
-│   └── templates/      # Dashboard interface
-│
-├── model/              # Training pipeline
-├── data/               # Dataset handling
-├── logs/               # Telemetry storage
-└── main.py             # Application entry
+├── app/                        # Appliance Runtime
+│   ├── api/
+│   │   └── routes.py           # Ingestion Logic
+│   ├── database/
+│   │   ├── db.py               # Engine Core
+│   │   ├── edushield.db        # Forensic Store
+│   │   └── schemas.py          # Data Models
+│   ├── models/
+│   │   ├── feature_engineering.py 
+│   │   └── ml_model.py         # NPU Inference
+│   ├── services/
+│   │   ├── email_parser.py     # MIME Dissector
+│   │   ├── explanation_engine.py 
+│   │   ├── privacy_service.py  # Content Masking
+│   │   └── risk_engine.py      # Hybrid Matrix
+│   ├── static/ & templates/    # Dashboard HUD
+│   ├── config.py
+│   └── main.py                 # Entry Point
+├── model/                      # Training Pipeline
+│   ├── edushield_spam_model.pkl
+│   ├── phishing_model.pkl
+│   ├── predict.py
+│   └── train_model.py
+├── assets/                     # UI/UX Resources
+├── data/                       # Forensic Datasets
+├── architecture_diagram.png    # System Blueprint
+└── requirements.txt            # System Deps
 ```
 
 ---
