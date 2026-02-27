@@ -175,6 +175,70 @@ EduShield AI operates across three specialized forensic layers, engineered for h
 - **Heuristics** | Logic-based tracking of obfuscated redirect chains.
 
 ---
+# 🖥️ SYSTEM INTERFACE
+
+The EduShield HUD provides a high-fidelity visualization of the hybrid fusion engine's telemetry, designed for real-time monitoring and threat intervention.
+
+---
+
+### **1.0 | Initial Ingestion Flow**
+<p align="center">
+  <img src="screenshots/s1.png" width="90%" alt="System Idle State">
+  <br>
+  <i><b>FIGURE 1.1:</b> System Idle State // Ryzen™ Optimized listener waiting for forensic data stream.</i>
+</p>
+
+<p align="center"><hr style="border:0; height:1px; background:#333; width:40%"></p>
+
+<p align="center">
+  <img src="screenshots/s2.png" width="90%" alt="Forensic Ingestion">
+  <br>
+  <i><b>FIGURE 1.2:</b> Data Ingestion // Secure local traversal of .eml forensic artifacts.</i>
+</p>
+
+<p align="center"><hr style="border:0; height:1px; background:#333; width:40%"></p>
+
+### **2.0 | Neural Analysis & Detection**
+<p align="center">
+  <img src="screenshots/s3.png" width="90%" alt="Main Dashboard Analysis">
+  <br>
+  <i><b>FIGURE 2.1:</b> Core Analysis // Real-time NPU latency tracking (629ms) and cross-vector inference completion.</i>
+</p>
+
+<p align="center"><hr style="border:0; height:1px; background:#333; width:40%"></p>
+
+<p align="center">
+  <img src="screenshots/s4.png" width="90%" alt="Forensic Deep Scan View">
+  <br>
+  <i><b>FIGURE 2.2:</b> Deep Scan View // Semantic highlighting of urgent language patterns and social engineering triggers.</i>
+</p>
+
+<p align="center"><hr style="border:0; height:1px; background:#333; width:40%"></p>
+
+### **3.0 | Forensic Telemetry & NPU Reasoning**
+<p align="center">
+  <img src="screenshots/s5.png" width="90%" alt="URL Feature Vector">
+  <br>
+  <i><b>FIGURE 3.1:</b> Neural Vector Space // Shannon Entropy mapping and suspicious TLD telemetry.</i>
+</p>
+
+<p align="center"><hr style="border:0; height:1px; background:#333; width:40%"></p>
+
+<p align="center">
+  <img src="screenshots/s6.png" width="90%" alt="Engine Telemetry Details">
+  <br>
+  <i><b>FIGURE 3.2:</b> Hardware Telemetry // AVX-512 VNNI instruction set utilization and NPU thermal monitoring.</i>
+</p>
+
+<p align="center"><hr style="border:0; height:1px; background:#333; width:40%"></p>
+
+<p align="center">
+  <img src="screenshots/s7.png" width="90%" alt="Stream Synchronization">
+  <br>
+  <i><b>FIGURE 3.3:</b> Signal Processing // Real-time NPU core geometry and stream synchronization status.</i>
+</p>
+
+---
 
 
 # 🧱 SYSTEM STRUCTURE
@@ -263,6 +327,7 @@ http://127.0.0.1:8000
 ```
 
 ---
+
 
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=FF0000&height=150&section=footer&text=FORENSIC_SCAN_COMPLETE%20%2F%2F%20THREAT_EVALUATED&fontColor=FFFFFF&fontSize=22"/>
