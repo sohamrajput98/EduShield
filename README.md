@@ -20,7 +20,7 @@
 
 <br>
 
-# 🛡️ EDUSHIELD AI
+## <img src="assets/1.svg" width="65" height="65" valign="middle"> EDUSHIELD AI
 
 **EduShield AI** is a hardened, appliance-grade forensic engine engineered to bridge the gap between high-level **Neural Linguistic Inference** and low-level **Hardware Acceleration**. Architected for the **AMD Ryzen™** ecosystem, it transforms raw threat data into verifiable intelligence via a deterministic, multi-layer inspection pipeline.
 
@@ -76,7 +76,7 @@ Designed for high-throughput forensic analysis, the EduShield pipeline executes 
 
 <div align="center">
 
-# 🧠 HYBRID FUSION MODEL
+## <img src="assets/1.svg" width="55" height="55" valign="middle"> HYBRID FUSION MODEL
 
 EduShield eliminates "Black-Box" uncertainty by synthesizing neural probability with deterministic forensic evidence. The result is a verifiable, multi-vector risk score optimized for the **AMD Ryzen™ NPU**.
 
