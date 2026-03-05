@@ -257,6 +257,20 @@ Frontend engineering priorities:
 
 ---
 
+##  📊 Architecture Notes
+
+This pipeline represents the real-time threat detection and analysis lifecycle of EduShield. The design prioritizes:
+
+Low latency inference
+
+Privacy-first processing
+
+Explainable cybersecurity intelligence
+
+The modular pipeline allows independent upgrades to detection models and forensic analytics components without breaking system stability.
+
+---
+
 ## 🛑 Security Design Philosophy :
 
 EduShield is engineered for high-trust security environments.
