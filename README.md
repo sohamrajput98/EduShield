@@ -368,7 +368,17 @@ http://127.0.0.1:8000
 [✔] Appliance-Grade API Runtime
 ```
 
-<br>
+#### 🎉 Recent Updates :
+
+```
+- Improved privacy-first offline detection design
+- Improved hybrid ML + rule-based threat scoring logic  
+- Enhanced phishing pattern detection for academic attack scenarios  
+- Added explainable AI reasoning outputs for better transparency  
+- Optimized offline inference pipeline for faster local processing  
+- Improved frontend result visualization and risk indicators  
+- Added additional security documentation and demo guides
+```  
 <br>
 <p align="center"><hr style="border:0; height:1px; background:#333; width:100%"></p>
 
